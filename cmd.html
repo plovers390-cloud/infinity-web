@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Infinity | Commands</title>
+    <link rel="icon" type="image/png" href="image/infinitylogo.png" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#b8b4fc",
+                        "secondary": "#8596ff",
+                        "primary-container": "#9d99df",
+                        "tertiary": "#88ebff",
+                        "tertiary-fixed": "#50e1f9",
+                        "on-error": "#490013",
+                        "tertiary-fixed-dim": "#3cd2eb",
+                        "secondary-fixed": "#c9cfff",
+                        "secondary-fixed-dim": "#b7c0ff",
+                        "on-tertiary-fixed-variant": "#005763",
+                        "surface-container-high": "#1c2028",
+                        "on-secondary-fixed-variant": "#3447ab",
+                        "on-tertiary-fixed": "#003840",
+                        "on-tertiary-container": "#004d58",
+                        "surface-container-low": "#10131a",
+                        "on-primary": "#34306f",
+                        "error-dim": "#d73357",
+                        "inverse-surface": "#f9f9ff",
+                        "primary-dim": "#aba6ed",
+                        "tertiary-dim": "#3cd2eb",
+                        "on-tertiary": "#005763",
+                        "on-secondary-fixed": "#10268d",
+                        "on-surface": "#ecedf6",
+                        "outline-variant": "#45484f",
+                        "surface": "#0b0e14",
+                        "secondary-dim": "#8596ff",
+                        "surface-container": "#161a21",
+                        "on-secondary": "#001367",
+                        "surface-container-highest": "#22262f",
+                        "on-surface-variant": "#a9abb3",
+                        "on-secondary-container": "#c7cdff",
+                        "surface-container-lowest": "#000000",
+                        "on-background": "#ecedf6",
+                        "surface-bright": "#282c36",
+                        "primary-fixed": "#b8b4fc",
+                        "on-primary-fixed-variant": "#3d3a78",
+                        "primary-fixed-dim": "#aba6ed",
+                        "inverse-on-surface": "#52555c",
+                        "error-container": "#a70138",
+                        "primary": "#b8b4fc",
+                        "surface-variant": "#22262f",
+                        "on-primary-container": "#1e1958",
+                        "secondary-container": "#293ca0",
+                        "on-primary-fixed": "#1e1958",
+                        "outline": "#73757d",
+                        "background": "#0b0e14",
+                        "tertiary-container": "#50e1f9",
+                        "error": "#ff6e84",
+                        "on-error-container": "#ffb2b9",
+                        "surface-dim": "#0b0e14",
+                        "inverse-primary": "#5b5898"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-card {
+            background: rgba(34, 38, 47, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(184, 180, 252, 0.3);
+        }
+
+        .three-d-shadow {
+            box-shadow: 0px 4px 0px #3d3a78;
+        }
+
+        .three-d-shadow:active {
+            box-shadow: 0px 0px 0px #3d3a78;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary-container/30 overflow-x-hidden flex flex-col min-h-screen">
+    <!-- TopNavBar -->
+    <nav class="bg-[#161a21]/60 backdrop-blur-xl docked full-width top-0 sticky z-50 no-border bg-gradient-to-b from-[#1c2028] to-transparent shadow-[0_4px_30px_rgba(0,0,0,0.1)] relative">
+        <div class="flex justify-between items-center w-full px-6 md:px-8 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black text-[#b8b4fc] tracking-tighter font-headline">Infinity</span>
+            </div>
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight" href="index.html#home">Home</a>
+                <a class="text-[#88ebff] border-b-2 border-[#88ebff] pb-1 font-headline font-bold tracking-tight" href="cmd.html">Commands</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-primary hover:scale-105" href="premium.html">Premium <span class="text-xs text-primary">✦</span></a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight" href="dev.html">Developer</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight" href="docs.html">Docs</a>
+            </div>
+            
+            <!-- Desktop Auth Slot -->
+            <div class="hidden md:block min-w-[160px]">
+                <a href="https://discord.com/oauth2/authorize?client_id=1483292216490332271&permissions=139904544118&integration_type=0&scope=applications.commands+bot" target="_blank" class="bg-primary text-[#15181e] font-headline font-black px-6 py-2.5 rounded-lg three-d-shadow hover:scale-105 transition-all duration-300 active:translate-y-0.5 w-full md:w-auto flex justify-center items-center">
+                    Add to Discord
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="hamburger-btn" class="md:hidden text-primary p-2 focus:outline-none flex items-center justify-center">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#1c2028] border-b border-outline-variant/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] flex-col p-6 gap-6 z-[100]">
+            <div class="flex flex-col items-center gap-6 text-center">
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-lg" href="index.html#home">Home</a>
+                <a class="text-[#88ebff] font-headline font-bold tracking-tight text-lg" href="cmd.html">Commands</a>
+                <a class="text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-primary font-headline font-bold tracking-tight text-lg" href="premium.html">Premium ✦</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-lg" href="dev.html">Developer</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-lg" href="docs.html">Docs</a>
+            </div>
+            <div class="h-px w-full bg-outline-variant/20 my-2"></div>
+            <!-- Mobile Auth Slot -->
+            <div class="w-full flex justify-center">
+                <a href="https://discord.com/oauth2/authorize?client_id=1483292216490332271&permissions=139904544118&integration_type=0&scope=applications.commands+bot" target="_blank" class="bg-primary text-[#15181e] font-headline font-black px-6 py-2.5 rounded-lg three-d-shadow hover:scale-105 transition-all duration-300 active:translate-y-0.5 w-full md:w-auto flex justify-center items-center">
+                    Add to Discord
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Hero Section: CMD -->
+        <section class="relative pt-24 pb-12 px-6 overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-20 overflow-hidden pointer-events-none">
+                <div class="absolute -top-[50%] -left-[10%] w-[40%] h-[70%] rounded-full bg-primary blur-[120px]"></div>
+                <div class="absolute top-[20%] -right-[10%] w-[40%] h-[50%] rounded-full bg-tertiary blur-[120px]"></div>
+            </div>
+            <div class="max-w-7xl mx-auto relative z-10 text-center">
+                <h1 class="text-6xl md:text-8xl font-black font-headline tracking-tighter text-glow uppercase">
+                    <span class="text-primary italic">INFINITY</span> CMDS
+                </h1>
+                <p class="text-on-surface-variant mt-4 text-xl max-w-2xl mx-auto">
+                    Complete reference for all Infinity module commands.
+                </p>
+            </div>
+        </section>
+
+        <!-- Command Interface -->
+        <section class="py-12 px-6 bg-surface-container-low min-h-[600px] mb-20 relative z-10">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
+                <!-- Left Side: Categories -->
+                <div class="w-full md:w-80 space-y-4 shrink-0">
+                    <h3 class="font-headline font-bold text-2xl mb-6 text-on-surface flex items-center gap-2">
+                        <span class="material-symbols-outlined text-tertiary">category</span> Categories
+                    </h3>
+                    <div class="flex flex-col gap-3" id="categories-container">
+                        <!-- Rendered via JS -->
+                    </div>
+                </div>
+
+                <!-- Right Side: Commands List -->
+                <div class="flex-1">
+                    <div id="commands-container" class="glass-card p-6 md:p-10 rounded-3xl border border-outline-variant/15 min-h-[500px]">
+                        <!-- Rendered via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0b0e14] py-12 border-t border-[#22262f]/15 relative z-10">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col gap-2">
+                <span class="text-lg font-bold text-[#b8b4fc] font-headline">Infinity Observatory</span>
+                <p class="text-slate-500 font-['Manrope'] text-sm">© 2024 Infinity Observatory. All rights
+                    reserved.</p>
+            </div>
+            <div class="flex items-center gap-8">
+                <a class="text-slate-500 hover:text-[#b8b4fc] transition-opacity font-['Manrope'] text-sm hover:underline decoration-[#88ebff]"
+                    href="docs.html">Terms of Service</a>
+                <a class="text-slate-500 hover:text-[#b8b4fc] transition-opacity font-['Manrope'] text-sm hover:underline decoration-[#88ebff]"
+                    href="docs.html">Privacy Policy</a>
+                <a class="text-slate-500 hover:text-[#b8b4fc] transition-opacity font-['Manrope'] text-sm hover:underline decoration-[#88ebff]"
+                    href="https://discord.gg/STP4qBjH7u">Support Server</a>
+            </div>
+            <div class="flex gap-4">
+                <div
+                    class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center hover:bg-primary/20 transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-on-surface-variant text-xl">brand_family</span>
+                </div>
+                <div
+                    class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center hover:bg-primary/20 transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-on-surface-variant text-xl">share</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const commandData = {
+            "Giveaways": [
+                { name: "+g-start", desc: "Start a giveaway" },
+                { name: "+giveaway", desc: "Giveaway commands" },
+                { name: "+g-end", desc: "End a giveaway immediately" }
+            ],
+            "Config": [
+                { name: "+ticket", desc: "Sets up the ticket panel and category" },
+                { name: "+prefix(set-prefix)", desc: "Set the bot's prefix" },
+                { name: "+ignore(ign)", desc: "Manage ignored channels." },
+                { name: "+createticketrole(ticketrole)", desc: "Creates the staff role (TC) for the ticket system" }
+            ],
+            "Premium": [
+                { name: "+remprem(deletepremium)", desc: "Remove Premium (Owner Only)" },
+                { name: "+npreq(noprefixrequirements)", desc: "Learn about how to get no-prefix access" },
+                { name: "+removenp(rnp)", desc: "Remove a user from the no-prefix list (Owner Only)" },
+                { name: "+addnoprefix(anp)", desc: "Add a user to the no-prefix list (Owner Only)" },
+                { name: "+premiumadd(addprem)", desc: "Add Premium (Owner Only)" },
+                { name: "+premium-price(pprice)", desc: "Show premium plans and features" },
+                { name: "+premiumreq", desc: "Discover the benefits of Premium!" },
+                { name: "+premiumstatus(premstats)", desc: "Check Premium Status of Server and User" }
+            ],
+            "Purge": [
+                { name: "+purgeuser(pu)", desc: "Delete messages from a specific user (last 100)" },
+                { name: "+purgebots(pb)", desc: "Delete bot messages (last 100)" },
+                { name: "+purgelong(plong)", desc: "Delete messages longer than 100 characters (last 100)" },
+                { name: "+purgelowercase(plc)", desc: "Delete messages containing only lowercase letters (last 100)" },
+                { name: "+purgeshort(pshort)", desc: "Delete messages shorter than 10 characters (last 100)" },
+                { name: "+purgementions(pm)", desc: "Delete messages that contain mentions (last 100)" },
+                { name: "+purgeimages(pi)", desc: "Delete messages that contain images (last 100)" },
+                { name: "+purgereactions(preact)", desc: "Delete messages with reactions (last 100)" },
+                { name: "+purgespoilers(pspoiler)", desc: "Delete messages containing spoilers (last 100)" },
+                { name: "+purgedits(ped)", desc: "Delete edited messages (last 100)" },
+                { name: "+purgeall(pall)", desc: "Delete all fetched messages (last 100)" },
+                { name: "+purgetts(ptts)", desc: "Delete TTS messages (last 100)" },
+                { name: "+purgeuppercase(puc)", desc: "Delete messages containing only uppercase letters (last 100)" },
+                { name: "+purgelinks(pl)", desc: "Delete messages that contain links (last 100)" },
+                { name: "+purgepins(pp)", desc: "Delete pinned messages (last 100)" },
+                { name: "+purgeembeds(pe)", desc: "Delete messages that contain embeds (last 100)" },
+                { name: "+purgesystem(psys)", desc: "Delete system messages (last 100)" },
+                { name: "+purge(clear)", desc: "Advanced bulk message deletion tools" }
+            ],
+            "Filters": [
+                { name: "+softfocus", desc: "Toggle Softfocus audio filter." },
+                { name: "+daycore", desc: "Toggle Daycore audio filter." },
+                { name: "+warmpad", desc: "Toggle Warmpad audio filter." },
+                { name: "+nightcore", desc: "Toggle Nightcore audio filter." },
+                { name: "+haunted", desc: "Toggle Haunted audio filter." },
+                { name: "+slowed", desc: "Toggle Slowed audio filter." },
+                { name: "+alien", desc: "Toggle Alien audio filter." },
+                { name: "+soft", desc: "Toggle Soft audio filter." },
+                { name: "+underwater", desc: "Toggle Underwater audio filter." },
+                { name: "+filter", desc: "Elite audio manipulation tools (Slash Only)" },
+                { name: "+dance", desc: "Toggle Dance audio filter." },
+                { name: "+reset", desc: "Reset all audio filters." },
+                { name: "+doubletime", desc: "Toggle Doubletime audio filter." },
+                { name: "+chill", desc: "Toggle Chill audio filter." },
+                { name: "+bass", desc: "Toggle Bass audio filter." },
+                { name: "+china", desc: "Toggle China audio filter." },
+                { name: "+softguitar", desc: "Toggle Softguitar audio filter." },
+                { name: "+3d", desc: "Toggle 3D audio filter." },
+                { name: "+ambient", desc: "Toggle Ambient audio filter." },
+                { name: "+space", desc: "Toggle Space audio filter." },
+                { name: "+bassboost", desc: "Toggle Bassboost audio filter." },
+                { name: "+lofi", desc: "Toggle Lofi audio filter." },
+                { name: "+darthvader", desc: "Toggle Darthvader audio filter." }
+            ],
+            "Info": [
+                { name: "+servercount(sc)", desc: "Shows how many servers the bot is in." },
+                { name: "+uptime(up)", desc: "Get Bot Real uptime !!" },
+                { name: "+nodestatus(ns)", desc: "Check the status of Lavalink nodes" },
+                { name: "+ping", desc: "Check bot and database latency" },
+                { name: "+invite(inv)", desc: "invite me" },
+                { name: "+credit(credits)", desc: "Shows the credits for the bot." },
+                { name: "+profile(badges)", desc: "Displays a user's profile with global badges and no-prefix status" },
+                { name: "+partner(sponser)", desc: "Get Bot Sponsers !!" },
+                { name: "+npstatus(nps)", desc: "Check if a user has NoPrefix status" },
+                { name: "+help(h)", desc: "Displays the help menu" },
+                { name: "+vote(v)", desc: "Vote for the bot" },
+                { name: "+support(sup)", desc: "Get Bot support server link !!" },
+                { name: "+stats(botinfo)", desc: "Show bot and Lavalink stats" }
+            ],
+            "Music": [
+                { name: "+lyrics(ly)", desc: "Fetch lyrics for the current song or given query" },
+                { name: "+loop(loopstart)", desc: "Loop a song or the entire queue!" },
+                { name: "+shuffle(shuffle)", desc: "Shuffle the queue!" },
+                { name: "+skip(s)", desc: "Skips the song currently playing." },
+                { name: "+resume(r)", desc: "Resumes the currently paused song." },
+                { name: "+back(b)", desc: "Returns to the previous song." },
+                { name: "+pause", desc: "Pauses the currently playing song." },
+                { name: "+autoplay(ap)", desc: "Toggle random songs after the queue ends." },
+                { name: "+disconnect(dc)", desc: "Disconnect the bot from the voice channel." },
+                { name: "+stop", desc: "Stops the player and clears the queue." },
+                { name: "+queue(q)", desc: "Show the current music queue" },
+                { name: "+play(p)", desc: "Play a song or playlist" },
+                { name: "+playlist(artist-playlist)", desc: "Play hit songs by an artist" },
+                { name: "+join(j)", desc: "Join the bot to your voice channel." },
+                { name: "+drag(move)", desc: "Move the bot to your current voice channel." },
+                { name: "+remove", desc: "Remove a song from the queue!" },
+                { name: "+nowplaying(np)", desc: "Show the current song details and progress" },
+                { name: "+volume(vol)", desc: "Control the volume of the song." },
+                { name: "+24-7(247)", desc: "Toggle 24/7 mode — bot stays in voice channel even when queue ends." },
+                { name: "+clear(clearqueue)", desc: "Clear song in queue!" },
+                { name: "+like-song(ls)", desc: "Play your liked songs" },
+                { name: "+replay", desc: "Replay the current song." },
+                { name: "+search", desc: "Search a song based on your interest!" }
+            ],
+            "Moderation": [
+                { name: "+ban(b)", desc: "Bans a member from the server" },
+                { name: "+unmute(untimeout)", desc: "Removes the timeout from a member" },
+                { name: "+kick(k)", desc: "Kicks a member from the server" },
+                { name: "+removerole(drole)", desc: "Removes a role from a member" },
+                { name: "+timeout(tm)", desc: "Timeouts a member for a specific duration" },
+                { name: "+addrole(role)", desc: "Adds a role to a member" },
+                { name: "+mute(shutup)", desc: "Mutes a member for a specific duration using timeout" }
+            ]
+        };
+
+        commandData["Bot Info"] = Object.values(commandData).flat();
+        
+        const categories = ["Bot Info", "Music", "Giveaways", "Config", "Premium", "Purge", "Filters", "Info", "Moderation"];
+        let activeCategory = categories[0];
+
+        const commandsContainer = document.getElementById("commands-container");
+        const categoriesContainer = document.getElementById("categories-container");
+
+        function renderCategories() {
+            categoriesContainer.innerHTML = '';
+            categories.forEach(cat => {
+                const btn = document.createElement("button");
+                btn.className = `w-full text-left px-6 py-4 rounded-xl font-headline font-bold transition-all ${activeCategory === cat ? 'bg-primary/10 border border-primary text-primary shadow-[0_0_15px_rgba(184,180,252,0.1)]' : 'bg-surface-container-high border border-outline-variant/10 hover:border-primary/50 text-on-surface-variant hover:text-primary'}`;
+                
+                const iconMap = {
+                    "Giveaways": "redeem",
+                    "Config": "settings",
+                    "Premium": "diamond",
+                    "Purge": "delete",
+                    "Filters": "graphic_eq",
+                    "Info": "info",
+                    "Music": "music_note",
+                    "Moderation": "shield",
+                    "Bot Info": "terminal"
+                };
+
+                btn.innerHTML = `<div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' ${activeCategory === cat ? 1 : 0};">${iconMap[cat] || 'folder'}</span> ${cat}</div>`;
+                btn.onclick = () => {
+                    activeCategory = cat;
+                    renderCategories();
+                    renderCommands();
+                };
+                categoriesContainer.appendChild(btn);
+            });
+        }
+
+        function renderCommands() {
+            commandsContainer.style.opacity = '0';
+            commandsContainer.style.transform = 'translateY(10px)';
+            
+            setTimeout(() => {
+                const iconMap = {
+                    "Giveaways": "redeem",
+                    "Config": "settings",
+                    "Premium": "diamond",
+                    "Purge": "delete",
+                    "Filters": "graphic_eq",
+                    "Info": "info",
+                    "Music": "music_note",
+                    "Moderation": "shield",
+                    "Prefix": "apps"
+                };
+
+                const commandsHtml = commandData[activeCategory].map(cmd => `
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-3 p-4 rounded-xl bg-[#1c2028]/80 hover:bg-[#22262f] border border-outline-variant/5 hover:border-outline-variant/20 transition-all group">
+                        <code class="px-3 py-1.5 rounded-lg bg-[#0b0e14] border border-outline-variant/10 text-tertiary font-mono text-sm shrink-0 shadow-inner group-hover:text-primary transition-colors">${cmd.name}</code>
+                        <div class="w-full h-px bg-outline-variant/10 sm:hidden"></div>
+                        <span class="hidden sm:inline text-outline-variant">—</span>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">${cmd.desc}</p>
+                    </div>
+                `).join('');
+
+                commandsContainer.innerHTML = `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b border-outline-variant/10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg transform rotate-3">
+                                <span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">${iconMap[activeCategory] || 'folder'}</span>
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-black font-headline text-glow">${activeCategory === 'Bot Info' ? 'Bot Information' : activeCategory + ' Commands'}</h2>
+                                ${activeCategory === 'Bot Info' ? `
+                                    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-6 text-sm text-on-surface-variant bg-[#1c2028] p-5 rounded-2xl border border-primary/20 shadow-lg relative overflow-hidden">
+                                        <div class="absolute inset-0 bg-primary/5 blur-xl pointer-events-none"></div>
+                                        <div class="flex items-center gap-3 relative z-10"><span class="material-symbols-outlined text-xl text-primary" style="font-variation-settings: 'FILL' 1;">keyboard_command_key</span> <span>Default Prefix: <strong class="text-primary text-base font-headline">.</strong></span></div>
+                                        <div class="flex items-center gap-3 relative z-10"><span class="material-symbols-outlined text-xl text-tertiary" style="font-variation-settings: 'FILL' 1;">functions</span> <span>Total cmd: <strong class="text-tertiary text-base font-headline">${commandData["Bot Info"].length}</strong></span></div>
+                                        <div class="flex items-center gap-3 relative z-10"><span class="material-symbols-outlined text-xl text-secondary" style="font-variation-settings: 'FILL' 1;">code</span> <span>Developer: <strong class="text-secondary text-base font-headline">Aditya Kumar {aka Nothing}</strong></span></div>
+                                        <div class="flex items-center gap-3 relative z-10"><span class="material-symbols-outlined text-xl text-primary" style="font-variation-settings: 'FILL' 1;">engineering</span> <span>Core Dev: <strong class="text-primary text-base font-headline">Darky {Zenkai}</strong></span></div>
+                                        <div class="flex items-center gap-3 relative z-10"><span class="material-symbols-outlined text-xl text-tertiary" style="font-variation-settings: 'FILL' 1;">javascript</span> <span>Lang Use: <strong class="text-tertiary text-base font-headline">JavaScript</strong></span></div>
+                                        <div class="flex items-center gap-3 relative z-10"><span class="material-symbols-outlined text-xl text-secondary" style="font-variation-settings: 'FILL' 1;">database</span> <span>Database: <strong class="text-secondary text-base font-headline">PostgreSQL</strong></span></div>
+                                        <div class="flex items-center gap-3 relative z-10 lg:col-span-3 sm:col-span-2"><span class="material-symbols-outlined text-xl text-primary" style="font-variation-settings: 'FILL' 1;">queue_music</span> <span>Music Source: <strong class="text-primary text-base font-headline">Lavalink</strong></span></div>
+                                    </div>
+                                ` : `
+                                    <p class="text-on-surface-variant text-sm mt-1">
+                                        ${commandData[activeCategory].length} commands available
+                                    </p>
+                                `}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid gap-4 mt-2">
+                        ${activeCategory === 'Bot Info' ? `
+                            <div class="p-8 mt-4 rounded-2xl bg-[#1c2028]/60 border border-outline-variant/10 shadow-lg text-on-surface-variant leading-relaxed space-y-5 text-lg">
+                                <h3 class="text-2xl font-headline font-bold text-on-surface mb-2">About Infinity</h3>
+                                <p>
+                                    Infinity is a premium, high-fidelity music engine engineered for top-tier performance on Discord. The foundations of this project were meticulously architected by our core developer <strong class="text-primary font-bold">Darky {Zenkai}</strong>.
+                                </p>
+                                <p>
+                                    Through active evolution, new features and massive architecture overhauls have been pushed by <strong class="text-secondary font-bold">Aditya Kumar {aka Nothing}</strong>. The entire data layer has been successfully rewritten and migrated from <span class="line-through decoration-error/50">MongoDB</span> to <strong class="text-tertiary font-bold">PostgreSQL</strong> — severely boosting query speed and overall data integrity.
+                                </p>
+                                <p>
+                                    In addition to the database enhancements, we introduced an expansive suite of unique commands and polished the code quality to perfection. The result is a more resilient, reliable, and sophisticated audio experience exactly tailored for high-end Discord servers.
+                                </p>
+                            </div>
+                        ` : commandsHtml}
+                    </div>
+                `;
+
+                commandsContainer.style.transition = 'all 0.4s ease';
+                commandsContainer.style.opacity = '1';
+                commandsContainer.style.transform = 'translateY(0)';
+            }, 150);
+        }
+
+        renderCategories();
+        renderCommands();
+    </script>
+    <!-- Authentication System -->
+    <script src="auth.js"></script>
+</body>
+
+</html>

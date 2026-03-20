@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Infinity | Documentation</title>
+    <link rel="icon" type="image/png" href="image/infinitylogo.png" />
+    <!-- Same standard includes -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b8b4fc",
+                        "secondary": "#8596ff",
+                        "tertiary": "#88ebff",
+                        "background": "#0b0e14",
+                        "surface-container-high": "#1c2028",
+                        "surface-container-low": "#10131a",
+                        "on-surface": "#ecedf6",
+                        "on-surface-variant": "#a9abb3",
+                        "outline-variant": "#45484f",
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(28, 32, 40, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .text-glow { text-shadow: 0 0 20px rgba(184, 180, 252, 0.3); }
+        .three-d-shadow { box-shadow: 0px 4px 0px #3d3a78; }
+        .three-d-shadow:active { box-shadow: 0px 0px 0px #3d3a78; transform: translateY(4px); }
+        
+        /* Markdown/Code pallet styling */
+        .prose h1, .prose h2, .prose h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #ecedf6;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 700;
+        }
+        .prose h1 { font-size: 2.25rem; margin-top: 0; }
+        .prose h2 { font-size: 1.5rem; border-bottom: 1px solid rgba(69, 72, 79, 0.3); padding-bottom: 0.5rem; }
+        .prose p {
+            color: #a9abb3;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-family: 'Manrope', sans-serif;
+        }
+        .prose ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        .prose ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: #a9abb3;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        .prose ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #b8b4fc;
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+        .code-pallet {
+            background-color: #0b0e14;
+            border: 1px solid rgba(184, 180, 252, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            font-family: inherit;
+            color: #a9abb3;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary/30 overflow-x-hidden flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-[#161a21]/60 backdrop-blur-xl docked full-width top-0 sticky z-50 no-border bg-gradient-to-b from-[#1c2028] to-transparent shadow-[0_4px_30px_rgba(0,0,0,0.1)] relative">
+        <div class="flex justify-between items-center w-full px-6 md:px-8 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black text-[#b8b4fc] tracking-tighter font-headline">Infinity</span>
+            </div>
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight" href="index.html#home">Home</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight" href="cmd.html">Commands</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-primary hover:scale-105" href="premium.html">Premium <span class="text-xs text-primary">✦</span></a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight" href="dev.html">Developer</a>
+                <a class="text-[#88ebff] border-b-2 border-[#88ebff] pb-1 font-headline font-bold tracking-tight" href="docs.html">Docs</a>
+            </div>
+            
+            <!-- Desktop Auth Slot -->
+            <div class="hidden md:block min-w-[160px]">
+                <a href="https://discord.com/oauth2/authorize?client_id=1483292216490332271&permissions=139904544118&integration_type=0&scope=applications.commands+bot" target="_blank" class="bg-primary text-[#15181e] font-headline font-black px-6 py-2.5 rounded-lg three-d-shadow hover:scale-105 transition-all duration-300 active:translate-y-0.5 w-full md:w-auto flex justify-center items-center">
+                    Add to Discord
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="hamburger-btn" class="md:hidden text-primary p-2 focus:outline-none flex items-center justify-center">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#1c2028] border-b border-outline-variant/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] flex-col p-6 gap-6 z-[100]">
+            <div class="flex flex-col items-center gap-6 text-center">
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-lg" href="index.html#home">Home</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-lg" href="cmd.html">Commands</a>
+                <a class="text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-primary font-headline font-bold tracking-tight text-lg" href="premium.html">Premium ✦</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-lg" href="dev.html">Developer</a>
+                <a class="text-[#88ebff] border-b-2 border-[#88ebff] pb-1 font-headline font-bold tracking-tight text-lg" href="docs.html">Docs</a>
+            </div>
+            <div class="h-px w-full bg-outline-variant/20 my-2"></div>
+            <!-- Mobile Auth Slot -->
+            <div class="w-full flex justify-center">
+                <a href="https://discord.com/oauth2/authorize?client_id=1483292216490332271&permissions=139904544118&integration_type=0&scope=applications.commands+bot" target="_blank" class="bg-primary text-[#15181e] font-headline font-black px-6 py-2.5 rounded-lg three-d-shadow hover:scale-105 transition-all duration-300 active:translate-y-0.5 w-full md:w-auto flex justify-center items-center">
+                    Add to Discord
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Docs -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="py-20 relative overflow-hidden flex flex-col items-center justify-center border-b border-outline-variant/10">
+            <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+                <div class="absolute top-[10%] left-[30%] w-[30%] h-[50%] rounded-full bg-primary blur-[120px] mix-blend-screen"></div>
+                <div class="absolute bottom-[10%] right-[30%] w-[30%] h-[40%] rounded-full bg-tertiary blur-[120px] mix-blend-screen"></div>
+            </div>
+            <div class="relative z-10 text-center px-6">
+                <span class="material-symbols-outlined text-6xl text-primary mb-4 drop-shadow-2xl inline-block">library_books</span>
+                <h1 class="text-5xl md:text-6xl font-black font-headline text-on-surface tracking-tight mb-4 text-glow">Documentation</h1>
+                <p class="text-on-surface-variant text-lg max-w-xl mx-auto">Everything you need to know about Infinity, including our terms of service and privacy protocols.</p>
+            </div>
+        </section>
+
+        <!-- Document Viewer Layout -->
+        <section class="py-12 px-6 max-w-7xl mx-auto relative z-10 w-full mb-20">
+            <div class="flex flex-col md:flex-row gap-12">
+                <!-- Left Side: Categories Sidebar -->
+                <div class="w-full md:w-80 shrink-0">
+                    <div class="glass-card p-6 rounded-3xl border border-outline-variant/15 sticky top-28">
+                        <h3 class="font-headline font-bold text-xl mb-6 text-on-surface flex items-center gap-2 border-b border-outline-variant/10 pb-4">
+                            <span class="material-symbols-outlined text-tertiary">sort</span> Menu
+                        </h3>
+                        <div class="flex flex-col gap-2" id="doc-tabs">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Content Area (Code Pallet style) -->
+                <div class="flex-1">
+                    <div class="glass-card p-10 md:p-14 rounded-3xl border border-outline-variant/15 shadow-2xl relative bg-[#15181e] min-h-[600px] prose" id="doc-content">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0b0e14] py-12 border-t border-[#22262f]/15 relative z-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col gap-2">
+                <span class="text-lg font-bold text-[#b8b4fc] font-headline">Infinity Observatory</span>
+                <p class="text-slate-500 font-['Manrope'] text-sm">© 2024 Infinity Observatory. All rights reserved.</p>
+            </div>
+            <div class="flex items-center gap-8">
+                <a class="text-slate-500 hover:text-[#b8b4fc] transition-opacity font-['Manrope'] text-sm hover:underline decoration-[#88ebff]" href="docs.html">Terms of Service</a>
+                <a class="text-slate-500 hover:text-[#b8b4fc] transition-opacity font-['Manrope'] text-sm hover:underline decoration-[#88ebff]" href="docs.html">Privacy Policy</a>
+                <a class="text-slate-500 hover:text-[#b8b4fc] transition-opacity font-['Manrope'] text-sm hover:underline decoration-[#88ebff]" href="https://discord.gg/STP4qBjH7u">Support Server</a>
+            </div>
+            <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center hover:bg-primary/20 transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-on-surface-variant text-xl">brand_family</span>
+                </div>
+                <div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center hover:bg-primary/20 transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-on-surface-variant text-xl">share</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const docsData = {
+            "User Guide": {
+                icon: "menu_book",
+                content: `
+                    <h1>User Guide</h1>
+                    <p>Welcome to the Infinity Bot User Guide! This document will help you get standard commands running smoothly in your Discord server.</p>
+                    
+                    <h2>1. Inviting Infinity</h2>
+                    <p>To begin using Infinity, you first need to invite it to your Discord server via the 'Invite Me' button. You must have the "Manage Server" or "Administrator" permission to add bots.</p>
+
+                    <h2>2. Basic Setup</h2>
+                    <p>Upon joining, Infinity will use its default prefix <strong>. (dot)</strong>.</p>
+                    <div class="code-pallet text-[#88ebff]">
+// To check if the bot is responsive:
+.ping
+
+// Response should be:
+🏓 Pong! Latency is 45ms.
+                    </div>
+
+                    <h2>3. Playing Music</h2>
+                    <p>Infinity heavily excels at audio playback. To queue a track from any supported source (Spotify, YouTube, Soundcloud):</p>
+                    <div class="code-pallet text-[#b8b4fc]">
+.play [song name or URL]
+.p never gonna give you up
+                    </div>
+                    <p>Use the Premium options for absolutely unrestricted 24/7 access and enhanced sound buffering.</p>
+                `
+            },
+            "Terms & Conditions": {
+                icon: "gavel",
+                content: `
+                    <h1>Terms and Conditions</h1>
+                    <p>Last updated: October 2024</p>
+                    
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>By inviting and using the Infinity Discord Bot, you agree to comply with and be bound by these Terms. If you disagree with any part of these terms, please restrict usage immediately.</p>
+                    
+                    <h2>2. Usage Limits</h2>
+                    <p>The Bot is provided "as is", without warranty of any kind. We strive to provide 99.9% uptime, but do not guarantee uninterrupted service.</p>
+                    <ul>
+                        <li>Do not use the bot to spam or violate Discord's Developer Terms of Service.</li>
+                        <li>Automated macro abuse of audio streaming filters is prohibited.</li>
+                        <li>Premium features are linked to Discord user IDs and Guild IDs.</li>
+                    </ul>
+
+                    <h2>3. Premium Subscriptions</h2>
+                    <p>All subscription purchases for Server Premium and User Global Premium are final. Refund requests will only be processed under exceptional circumstances within 3 days of purchase.</p>
+
+                    <div class="code-pallet text-[#8596ff]">
+// If you encounter issues with transactions, please reach out via:
+Email: support@infinitybot.com
+Discord Support Server: (Link in Footer)
+                    </div>
+                `
+            },
+            "Privacy Policy": {
+                icon: "security",
+                content: `
+                    <h1>Privacy Policy</h1>
+                    <p>At Infinity, we highly value your privacy. This policy outlines exactly what data we collect and how we utilize it to improve the bot.</p>
+                    
+                    <h2>1. Data We Collect</h2>
+                    <p>Our PostgreSQL database securely logs minimal operational data required for the bot to function:</p>
+                    <ul>
+                        <li><strong>Discord User IDs</strong>: To save personal playlists, Liked Songs, and Premium tracking.</li>
+                        <li><strong>Discord Guild/Server IDs</strong>: To manage server configurations, custom prefixes, and active music queues.</li>
+                        <li><strong>Preferences</strong>: Filter toggles and 24/7 channel settings.</li>
+                    </ul>
+
+                    <h2>2. What We Don't Collect</h2>
+                    <p>Infinity does NOT record your voice activity or eavesdrop on voice channels. The Lavalink nodes only stream external audio requests to Discord.</p>
+
+                    <div class="code-pallet text-[#88ebff]">
+// To request deletion of all your stored data across our database:
+Run the command:
+.deletedata
+                    </div>
+                `
+            }
+        };
+
+        const tabsContainer = document.getElementById('doc-tabs');
+        const contentContainer = document.getElementById('doc-content');
+        
+        const categories = Object.keys(docsData);
+        let activeTab = categories[0];
+
+        function renderTabs() {
+            tabsContainer.innerHTML = '';
+            categories.forEach(cat => {
+                const btn = document.createElement("button");
+                const isActive = activeTab === cat;
+                
+                btn.className = `w-full text-left px-5 py-3.5 rounded-xl font-headline font-bold transition-all flex items-center gap-3 ${isActive ? 'bg-primary/10 border border-primary/50 text-primary shadow-[0_0_15px_rgba(184,180,252,0.1)]' : 'bg-transparent border border-transparent hover:bg-white/5 text-on-surface-variant hover:text-on-surface'}`;
+                
+                btn.innerHTML = `<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' ${isActive ? 1 : 0};">${docsData[cat].icon}</span> ${cat}`;
+                btn.onclick = () => {
+                    activeTab = cat;
+                    renderTabs();
+                    renderContent();
+                };
+                tabsContainer.appendChild(btn);
+            });
+        }
+
+        function renderContent() {
+            contentContainer.style.opacity = '0';
+            contentContainer.style.transform = 'translateY(15px)';
+            
+            setTimeout(() => {
+                contentContainer.innerHTML = docsData[activeTab].content;
+                contentContainer.style.transition = 'all 0.4s ease';
+                contentContainer.style.opacity = '1';
+                contentContainer.style.transform = 'translateY(0)';
+            }, 150);
+        }
+
+        renderTabs();
+        renderContent();
+    </script>
+    <!-- Authentication System -->
+    <script src="auth.js"></script>
+</body>
+</html>

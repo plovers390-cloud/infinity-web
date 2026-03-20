@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Infinity | Premium</title>
+    <link rel="icon" type="image/png" href="image/infinitylogo.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#b8b4fc",
+                        "secondary": "#8596ff",
+                        "primary-container": "#9d99df",
+                        "tertiary": "#88ebff",
+                        "surface-container-high": "#1c2028",
+                        "surface-container-low": "#10131a",
+                        "on-surface": "#ecedf6",
+                        "outline-variant": "#45484f",
+                        "background": "#0b0e14",
+                        "surface-variant": "#22262f",
+                        "primary": "#b8b4fc",
+                        "on-primary": "#15181e"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(28, 32, 40, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .text-glow { text-shadow: 0 0 20px rgba(184, 180, 252, 0.3); }
+        .three-d-shadow { box-shadow: 0px 4px 0px #3d3a78; }
+        .three-d-shadow:active { box-shadow: 0px 0px 0px #3d3a78; transform: translateY(4px); }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-primary-container/30 overflow-x-hidden flex flex-col min-h-screen">
+    <!-- TopNavBar -->
+    <nav class="bg-[#161a21]/60 backdrop-blur-xl docked full-width top-0 sticky z-50 no-border bg-gradient-to-b from-[#1c2028] to-transparent shadow-[0_4px_30px_rgba(0,0,0,0.1)] relative">
+        <div class="flex justify-between items-center w-full px-6 md:px-8 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black text-[#b8b4fc] tracking-tighter font-headline">Infinity</span>
+            </div>
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight" href="index.html#home">Home</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight" href="cmd.html">Commands</a>
+                <a class="text-[#88ebff] border-b-2 border-[#88ebff] pb-1 font-headline font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-primary hover:scale-105" href="premium.html">Premium <span class="text-xs text-primary">✦</span></a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight" href="dev.html">Developer</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight" href="docs.html">Docs</a>
+            </div>
+            
+            <!-- Desktop Auth Slot -->
+            <div class="hidden md:block min-w-[160px]">
+                <a href="https://discord.com/oauth2/authorize?client_id=1483292216490332271&permissions=139904544118&integration_type=0&scope=applications.commands+bot" target="_blank" class="bg-primary text-[#15181e] font-headline font-black px-6 py-2.5 rounded-lg three-d-shadow hover:scale-105 transition-all duration-300 active:translate-y-0.5 w-full md:w-auto flex justify-center items-center">
+                    Add to Discord
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="hamburger-btn" class="md:hidden text-primary p-2 focus:outline-none flex items-center justify-center">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#1c2028] border-b border-outline-variant/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] flex-col p-6 gap-6 z-[100]">
+            <div class="flex flex-col items-center gap-6 text-center">
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-lg" href="index.html#home">Home</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-lg" href="cmd.html">Commands</a>
+                <a class="text-[#88ebff] border-b-2 border-[#88ebff] pb-1 font-headline font-bold tracking-tight text-lg" href="premium.html">Premium ✦</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-lg" href="dev.html">Developer</a>
+                <a class="text-[#b8b4fc]/70 hover:text-[#b8b4fc] transition-colors font-headline font-bold tracking-tight text-lg" href="docs.html">Docs</a>
+            </div>
+            <div class="h-px w-full bg-outline-variant/20 my-2"></div>
+            <!-- Mobile Auth Slot -->
+            <div class="w-full flex justify-center">
+                <a href="https://discord.com/oauth2/authorize?client_id=1483292216490332271&permissions=139904544118&integration_type=0&scope=applications.commands+bot" target="_blank" class="bg-primary text-[#15181e] font-headline font-black px-6 py-2.5 rounded-lg three-d-shadow hover:scale-105 transition-all duration-300 active:translate-y-0.5 w-full md:w-auto flex justify-center items-center">
+                    Add to Discord
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-16 px-6 relative overflow-hidden flex flex-col items-center justify-center">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+            <div class="absolute top-[10%] left-[30%] w-[30%] h-[50%] rounded-full bg-primary blur-[120px] mix-blend-screen"></div>
+            <div class="absolute bottom-[10%] right-[30%] w-[30%] h-[40%] rounded-full bg-tertiary blur-[120px] mix-blend-screen"></div>
+        </div>
+
+        <div class="max-w-6xl w-full mx-auto relative z-10">
+            <!-- Header Section -->
+            <div class="text-center mb-16 relative z-10">
+                <span class="text-5xl hover:scale-110 transition-transform inline-block mb-4 drop-shadow-2xl">💎</span>
+                <h1 class="text-4xl md:text-5xl font-black font-headline text-on-surface tracking-tight mb-4 text-glow">Infinity Premium</h1>
+                <p class="text-[#a9abb3] text-lg max-w-2xl mx-auto leading-relaxed">Get access to exclusive features and enhance your Discord experience! Choose the perfect plan for your server or for yourself globally.</p>
+            </div>
+
+            <!-- Pricing Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+                <!-- Server Premium Card -->
+                <div class="glass-card rounded-3xl p-8 lg:p-10 border border-outline-variant/10 shadow-2xl relative overflow-hidden group hover:border-primary/30 transition-all hover:-translate-y-2 duration-300 flex flex-col">
+                    <div class="absolute -top-32 -right-32 w-64 h-64 bg-primary/10 rounded-full blur-[80px] group-hover:bg-primary/20 transition-colors pointer-events-none"></div>
+                    
+                    <div class="mb-8 relative z-10 flex-shrink-0">
+                        <div class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-sm mb-4 border border-primary/20">Server Plan</div>
+                        <h2 class="text-3xl font-black font-headline text-on-surface mb-2">Guild Premium</h2>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl font-black text-on-surface">49 RS</span>
+                            <span class="text-[#a9abb3] font-medium">/ Month</span>
+                        </div>
+                        <p class="text-sm text-[#a9abb3] mt-3 border-l-2 border-primary/50 pl-3">Unlock premium features securely restricted to a single server.</p>
+                    </div>
+
+                    <div class="w-full h-px bg-outline-variant/5 mb-8 flex-shrink-0"></div>
+
+                    <div class="space-y-4 mb-10 relative z-10 flex-grow">
+                        <div class="flex items-start gap-3 text-[15px]">
+                            <span class="material-symbols-outlined text-primary text-[20px] shrink-0 translate-y-0.5">check_circle</span>
+                            <div>
+                                <span class="text-on-surface font-bold block">No-prefix</span>
+                                <span class="text-[#a9abb3] text-sm">Use commands without prefix in the server</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 text-[15px]">
+                            <span class="material-symbols-outlined text-primary text-[20px] shrink-0 translate-y-0.5">check_circle</span>
+                            <div>
+                                <span class="text-on-surface font-bold block">24/7 Access</span>
+                                <span class="text-[#a9abb3] text-sm">Keep the bot in voice channel 24/7</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 text-[15px]">
+                            <span class="material-symbols-outlined text-primary text-[20px] shrink-0 translate-y-0.5">check_circle</span>
+                            <div>
+                                <span class="text-on-surface font-bold block">Set Prefix & Ignore Channel</span>
+                                <span class="text-[#a9abb3] text-sm">Change bot prefix and restrict channels</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 text-[15px]">
+                            <span class="material-symbols-outlined text-primary text-[20px] shrink-0 translate-y-0.5">check_circle</span>
+                            <div>
+                                <span class="text-on-surface font-bold block">Drag Support</span>
+                                <span class="text-[#a9abb3] text-sm">Move the bot between voice channels freely</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 text-[15px]">
+                            <span class="material-symbols-outlined text-primary text-[20px] shrink-0 translate-y-0.5">check_circle</span>
+                            <div>
+                                <span class="text-on-surface font-bold block">High Fidelity Audio</span>
+                                <span class="text-[#a9abb3] text-sm">Best sound quality with Spotify support & more</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="w-full mt-auto bg-primary/10 hover:bg-primary border border-primary text-primary hover:text-[#15181e] font-headline font-bold px-6 py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(184,180,252,0.3)] relative z-10">
+                        Get Server Premium <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                    </button>
+                </div>
+
+                <!-- User Global Premium Card -->
+                <div class="glass-card bg-gradient-to-b from-[#1c2028] to-[#10131a] rounded-3xl p-8 lg:p-10 border border-tertiary/20 shadow-2xl relative overflow-hidden group hover:border-tertiary/40 transition-all hover:-translate-y-2 duration-300 flex flex-col">
+                    <div class="absolute -top-32 -left-32 w-64 h-64 bg-tertiary/10 rounded-full blur-[80px] group-hover:bg-tertiary/20 transition-colors pointer-events-none"></div>
+                    <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary to-tertiary"></div>
+
+                    <div class="mb-8 relative z-10 flex-shrink-0">
+                        <div class="inline-block px-4 py-1.5 rounded-full bg-tertiary/10 text-tertiary font-bold text-sm mb-4 border border-tertiary/20 relative overflow-hidden">
+                            <span class="relative z-10">Best Value</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
+                        </div>
+                        <h2 class="text-3xl font-black font-headline text-on-surface mb-2">User Premium</h2>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl font-black text-on-surface">99 RS</span>
+                            <span class="text-[#a9abb3] font-medium">/ Month</span>
+                        </div>
+                        <p class="text-sm text-[#a9abb3] mt-3 border-l-2 border-tertiary/50 pl-3">Premium perks travel with you across all servers globally.</p>
+                    </div>
+
+                    <div class="w-full h-px bg-outline-variant/5 mb-8 flex-shrink-0"></div>
+
+                    <div class="space-y-4 mb-10 relative z-10 flex-grow">
+                        <div class="flex items-start gap-3 text-[15px]">
+                            <span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 translate-y-0.5">workspace_premium</span>
+                            <div>
+                                <span class="text-on-surface font-bold block flex items-center gap-2">Global No-prefix <span class="text-[10px] bg-tertiary/20 text-tertiary px-2 py-0.5 rounded-full">Global</span></span>
+                                <span class="text-[#a9abb3] text-sm">Use commands without prefix anywhere</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 text-[15px]">
+                            <span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 translate-y-0.5">workspace_premium</span>
+                            <div>
+                                <span class="text-on-surface font-bold block">Personal Playlists & Likes</span>
+                                <span class="text-[#a9abb3] text-sm">Save your favorite songs and global playlists</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 text-[15px]">
+                            <span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 translate-y-0.5">workspace_premium</span>
+                            <div>
+                                <span class="text-on-surface font-bold block">24/7 Access</span>
+                                <span class="text-[#a9abb3] text-sm">Keep the bot in voice channel 24/7 globally</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 text-[15px]">
+                            <span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 translate-y-0.5">workspace_premium</span>
+                            <div>
+                                <span class="text-on-surface font-bold block">Drag Support</span>
+                                <span class="text-[#a9abb3] text-sm">Move the bot between voice channels freely</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 text-[15px]">
+                            <span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 translate-y-0.5">workspace_premium</span>
+                            <div>
+                                <span class="text-on-surface font-bold block">High Fidelity Audio</span>
+                                <span class="text-[#a9abb3] text-sm">Best sound quality with Spotify support & more</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="w-full mt-auto bg-gradient-to-r from-tertiary to-primary hover:from-primary hover:to-tertiary text-[#15181e] font-headline font-black px-6 py-3.5 rounded-2xl transition-all flex items-center justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(136,235,255,0.4)] relative z-10">
+                        Subscribe Global <span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0b0e14] py-12 border-t border-[#22262f]/15 relative z-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col gap-2">
+                <span class="text-lg font-bold text-[#b8b4fc] font-headline">Infinity Observatory</span>
+                <p class="text-slate-500 font-['Manrope'] text-sm">© 2024 Infinity Observatory. All rights reserved.</p>
+            </div>
+            <div class="flex items-center gap-8">
+                <a class="text-slate-500 hover:text-[#b8b4fc] transition-opacity font-['Manrope'] text-sm hover:underline decoration-[#88ebff]" href="docs.html">Terms of Service</a>
+                <a class="text-slate-500 hover:text-[#b8b4fc] transition-opacity font-['Manrope'] text-sm hover:underline decoration-[#88ebff]" href="docs.html">Privacy Policy</a>
+                <a class="text-slate-500 hover:text-[#b8b4fc] transition-opacity font-['Manrope'] text-sm hover:underline decoration-[#88ebff]" href="https://discord.gg/STP4qBjH7u">Support Server</a>
+            </div>
+            <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center hover:bg-primary/20 transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-on-surface-variant text-xl">brand_family</span>
+                </div>
+                <div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center hover:bg-primary/20 transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-on-surface-variant text-xl">share</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Authentication System -->
+    <script src="auth.js"></script>
+</body>
+</html>
